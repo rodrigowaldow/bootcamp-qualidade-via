@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+import usuarios from "../../fixtures/usuarios.json"
 
 // Aula 16/08/2022
 describe('US0001 - Funcionalidade Login', () => {
@@ -14,6 +15,18 @@ describe('US0001 - Funcionalidade Login', () => {
     it('Validar mensagem de erro quando inserir usuário e senha inválidos', () => {
         cy.login('fefeafeaf@viavarejo.com.br', 'Stefanini@1984')
         cy.get('[data-test="alert"]').should('contain', 'Credenciais inválidas')
+    });
+
+    it('Deve fazer login com sucesso - Usando importação de dados', () => {
+        cy.login(usuarios[0].email, usuarios[0].senha)
+        cy.get('[data-test="dashboard-welcome"]').should('contain', 'Bem-vindo')
+    });
+
+    it('Deve fazer login com sucesso - Usando fixture', () => {
+        cy.fixture('usuarios').then((user) => {
+            cy.login(user[0].email, user[0].senha)
+        })
+        cy.get('[data-test="dashboard-welcome"]').should('contain', 'Bem-vindo')
     });
 });
 
