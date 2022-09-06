@@ -25,6 +25,7 @@
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
 /// <reference types="Cypress" />
+import auth from '../fixtures/auth.json'
 
 Cypress.Commands.add('navigate', (route) => {
     cy.intercept(route).as('loadpage')
@@ -49,4 +50,27 @@ Cypress.Commands.add('cadastrar', (name, email, senha) => {
     cy.get('[data-test="register-password2"] > .MuiInputBase-root > .MuiInputBase-input')
     .type(senha)
     cy.get('[data-test="register-submit"]').click()
+})
+
+Cypress.Commands.add('tokenJwt', () => {
+    cy.request({
+        method: 'POST',
+        url: '/api/auth',
+        body: auth
+      }).then((response) => {
+        return response.body.jwt
+      })
+})
+
+Cypress.Commands.add('criarPostagem', (token, value) => {
+    cy.request({
+        method: 'POST',
+        url: '/api/posts',
+        headers: { 
+            Cookie: token
+        },
+        body: {
+            text: value
+        }
+    })
 })
