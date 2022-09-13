@@ -1,0 +1,8 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Tue Sep 13 15:14:52 GMT 2022","Tue Sep 13 15:14:53 GMT 2022","431","","Teste de Alteração","","","","[PUT] Curtir uma postagem",""
+"passed","Tue Sep 13 15:14:49 GMT 2022","Tue Sep 13 15:14:50 GMT 2022","658","","Testes de Criação de Postagens","","","","[POST] Criar uma postagem",""
+"passed","Tue Sep 13 15:14:52 GMT 2022","Tue Sep 13 15:14:52 GMT 2022","423","","Testes de Exclusão","","","","[DELETE] Excluir uma postagem",""
+"passed","Tue Sep 13 15:14:50 GMT 2022","Tue Sep 13 15:14:51 GMT 2022","1161","","Teste de Consulta de Postagens","","","","[GET] Consultar uma postagem",""
+"passed","Tue Sep 13 15:15:21 GMT 2022","Tue Sep 13 15:15:30 GMT 2022","8435","","US0003 - Funcionalidade: Criar perfil","","","","Deve criar meu perfil com sucesso",""
+"passed","Tue Sep 13 15:15:05 GMT 2022","Tue Sep 13 15:15:09 GMT 2022","3676","","US0002 - Funcionalidade: Cadastro","","","","Deve fazer cadastro com sucesso",""
+"passed","Tue Sep 13 15:14:51 GMT 2022","Tue Sep 13 15:14:52 GMT 2022","452","","Teste de Consulta de Postagens","","","","[GET] Consultar uma postagem por ID",""
