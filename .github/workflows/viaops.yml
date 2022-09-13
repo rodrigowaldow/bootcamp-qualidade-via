@@ -1,38 +1,30 @@
 name: ViaOps CI
 on:
+  # [push]
   pull_request:
     branches: [ master, release/develop ]
 
-  # schedule: deve utilizar quando for necessário agendamendo para execução
-      # run at *minute  *hours *month *months of the years *days of week
-    # - cron: "* * * * *"
-    
   workflow_dispatch:
     inputs:
       amb:
         description: 'Selecionar algum destes ambientes: dev / stg / hlg / prd'
         required: false
-        default: 'stg'
+        default: 'prd'
       browser:
         description: 'Selecionar algum destes browsers: chrome / electron'
         required: true
         default: 'chrome'
-      tag:
-        description: 'Selecionar alguma tag, por exemplo: @regressivo / @smoke / @demo'
-        required: false
-        default: '@demo'
     
 env:
-  DEFAULT_KEY: "inserir-key-cypress-dashboard"
-  DEFAULT_AMB: "stg"
+  DEFAULT_KEY: "2b547570-b6ee-40c5-8f9d-4d8654df33b8"
+  DEFAULT_AMB: "prd"
   DEFAULT_BROWSER: "chrome"
-  DEFAULT_TAG: "@demo"
-  DEFAULT_GROUP: "CI"
+  DEFAULT_GROUP: "Continuos Testing"
 
 jobs:
   cypress-run-tests:
     name: Cypress run
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     container: cypress/browsers:node14.15.0-chrome96-ff94
     strategy:
       fail-fast: false

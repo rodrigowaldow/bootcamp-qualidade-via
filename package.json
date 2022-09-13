@@ -10,7 +10,7 @@
   "scripts": {
     "cy:test": "cypress run --config video=false --env",
     "cy:open": "cypress open",
-    "cy:dash": "npx cypress run --record --key {secrets_dash}",
+    "cy:dash": "npx cypress run --record --key 2b547570-b6ee-40c5-8f9d-4d8654df33b8",
     "allure:report": "allure generate --clean allure-results && allure open"
   },
   "keywords": [
