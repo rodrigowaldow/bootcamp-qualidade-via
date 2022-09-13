@@ -40,6 +40,20 @@ Cypress.Commands.add('login', (email, senha) => {
     cy.get('[data-test="login-submit"]').click()
 })
 
+Cypress.Commands.add('loginApp', () => {
+    cy.request({
+        method: 'POST',
+        url: 'api/auth',
+        body: {
+            email: auth.email,
+            password: auth.password
+        }
+    }).then((response) => {
+        cy.setCookie('region', 'BR-RS')
+        window.localStorage.setItem('token', response.body.jwt)
+    })
+})
+
 Cypress.Commands.add('cadastrar', (name, email, senha) => {
     cy.get('[data-test="register-name"] > .MuiInputBase-root > .MuiInputBase-input')
     .type(name)
